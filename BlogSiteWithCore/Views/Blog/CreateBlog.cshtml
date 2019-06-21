@@ -1,0 +1,43 @@
+﻿@model BlogSiteWithCore.Classes.Entities.Blog
+
+@{
+    ViewData["Title"] = "CreateBlog";
+}
+
+<h1>CreateBlog</h1>
+
+<h4>Blog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateBlog">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label"></label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastOperationDate" class="control-label"></label>
+                <input type="date" asp-for="LastOperationDate" class="form-control" />
+                <span asp-validation-for="LastOperationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastOperationerName" class="control-label"></label>
+                <input asp-for="LastOperationerName" class="form-control" />
+                <span asp-validation-for="LastOperationerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
